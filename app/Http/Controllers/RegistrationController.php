@@ -23,7 +23,10 @@ class RegistrationController extends Controller
     ]);
 
     $user = User::create($attributes);
-    // auth()->login($user)
+    auth()->login($user);
+
+    session()->flash('success',"You have successfully registered");
     
+    return redirect('/');
   }
 }
